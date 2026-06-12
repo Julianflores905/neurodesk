@@ -1,6 +1,19 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+
 
 export default function NeuroDeskWebsite() {
+  const [isLogged, setIsLogged] = useState(false);
+
+  const login = () => {
+    setIsLogged(true);
+    alert("Sesión iniciada correctamente");
+  };
+
+  const register = () => {
+    alert("Cuenta creada correctamente");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-slate-950 to-blue-950 text-white overflow-x-hidden">
 
@@ -9,9 +22,11 @@ export default function NeuroDeskWebsite() {
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
 
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-green-700 to-blue-900 flex items-center justify-center text-2xl font-bold">
-              N
-            </div>
+            <img
+  src="/logo.jpeg"
+  alt="NeuroDesk Logo"
+  className="w-14 h-14 object-contain drop-shadow-lg"
+/>
 
             <div>
               <h1 className="text-2xl font-black">NeuroDesk</h1>
@@ -22,11 +37,17 @@ export default function NeuroDeskWebsite() {
           </div>
 
           <div className="flex gap-4">
-            <button className="px-5 py-2 rounded-2xl border border-slate-700 bg-slate-900/40 hover:bg-slate-800 transition-all">
-              Login
+            <button
+              onClick={login}
+              className="px-5 py-2 rounded-2xl border border-slate-700 bg-slate-900/40 hover:bg-slate-800 hover:scale-105 hover:shadow-[0_0_20px_rgba(34,197,94,0.7)] transition-all duration-300"
+            >
+              {isLogged ? "Conectado ✓" : "Login"}
             </button>
 
-            <button className="px-6 py-2 rounded-2xl bg-gradient-to-r from-green-700 to-blue-900 hover:scale-105 transition-all duration-300">
+            <button
+              onClick={register}
+             className="px-6 py-2 rounded-2xl bg-gradient-to-r from-green-700 to-blue-900 hover:scale-105 hover:shadow-[0_0_25px_rgba(34,197,94,0.8)] transition-all duration-300"
+            >
               Registro
             </button>
           </div>
@@ -62,18 +83,7 @@ export default function NeuroDeskWebsite() {
             velocidad y experiencia premium.
           </p>
 
-          <div className="flex flex-wrap gap-5">
-
-            <button className="px-10 py-5 rounded-3xl bg-gradient-to-r from-green-700 to-blue-900 hover:scale-105 transition-all duration-300 text-lg font-bold">
-              Descargar App
-            </button>
-
-            <button className="px-10 py-5 rounded-3xl border border-slate-700 bg-slate-900/40 hover:bg-slate-800 transition-all text-lg">
-              Ver Demo
-            </button>
-
-          </div>
-
+          <div className="flex flex-wrap gap-5"></div>
         </motion.div>
 
         {/* DASHBOARD */}
@@ -90,11 +100,11 @@ export default function NeuroDeskWebsite() {
 
               <div>
                 <h3 className="text-3xl font-black">
-                  NeuroDesk OS
+                  NeuroDesk para Windows
                 </h3>
 
                 <p className="text-slate-400">
-                  AI Dashboard
+                  Compatible con Windows 10 y 11
                 </p>
               </div>
 
@@ -162,14 +172,29 @@ export default function NeuroDeskWebsite() {
               desc: "Optimización avanzada y rendimiento extremo.",
             },
             {
-              icon: "🧠",
-              title: "IA Integrada",
-              desc: "Funciones inteligentes para productividad.",
+              icon: "🔒",
+              title: "Seguridad Avanzada",
+              desc: "Protección moderna y autenticación segura.",
             },
             {
-              icon: "🔒",
-              title: "Seguridad",
-              desc: "Protección moderna y autenticación segura.",
+              icon: "☁️",
+              title: "Sincronización Cloud",
+              desc: "Accede a tus datos desde cualquier lugar.",
+            },
+            {
+              icon: "🖥️",
+              title: "Compatible con Windows",
+              desc: "Funciona en Windows 10 y Windows 11.",
+            },
+            {
+              icon: "🚀",
+              title: "Alto Rendimiento",
+              desc: "Máxima velocidad para tareas exigentes.",
+            },
+            {
+              icon: "🔄",
+              title: "Actualizaciones Automáticas",
+              desc: "Siempre tendrás la última versión disponible.",
             },
           ].map((item, index) => (
 
@@ -194,6 +219,92 @@ export default function NeuroDeskWebsite() {
             </motion.div>
 
           ))}
+
+        </div>
+
+            </section>
+
+      {/* SUSCRIPCIONES */}
+      <section className="max-w-7xl mx-auto px-6 py-24">
+
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-black mb-6">
+            Planes Premium
+          </h2>
+
+          <p className="text-slate-400 text-lg">
+            Desbloquea todo el potencial de NeuroDesk.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="bg-slate-950/70 border border-slate-800 rounded-[2rem] p-8 shadow-xl hover:border-green-500"
+          >
+            <h3 className="text-3xl font-black mb-4">Mensual</h3>
+            <p className="text-5xl font-black text-green-400 mb-6">$10</p>
+
+            <ul className="space-y-3 text-slate-300 mb-8">
+              <li>✓ IA ilimitada</li>
+              <li>✓ Historial persistente</li>
+              <li>✓ Buscar archivos duplicados</li>
+              <li>✓ Modo automático</li>
+              <li>✓ Limpieza caché/temp</li>
+              <li>✓ Sugerencias automáticas</li>
+            </ul>
+
+            <button className="w-full py-4 rounded-2xl bg-gradient-to-r from-green-700 to-blue-900 hover:scale-105 hover:shadow-[0_0_25px_rgba(34,197,94,0.8)] transition-all duration-300 font-bold">
+              Suscribirse
+            </button>
+          </motion.div>
+
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="relative bg-slate-950 border-2 border-green-500 rounded-[2rem] p-8 shadow-2xl"
+          >
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-green-500 text-black font-black">
+              MÁS POPULAR
+            </div>
+
+            <h3 className="text-3xl font-black mb-4">3 Meses</h3>
+            <p className="text-5xl font-black text-green-400 mb-6">$25</p>
+
+            <ul className="space-y-3 text-slate-300 mb-8">
+              <li>✓ IA ilimitada</li>
+              <li>✓ Historial persistente</li>
+              <li>✓ Buscar archivos duplicados</li>
+              <li>✓ Modo automático</li>
+              <li>✓ Limpieza caché/temp</li>
+              <li>✓ Sugerencias automáticas</li>
+            </ul>
+
+            <button className="w-full py-4 rounded-2xl bg-gradient-to-r from-green-600 to-blue-800 hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.9)] transition-all duration-300 font-bold">
+              Suscribirse
+            </button>
+          </motion.div>
+
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="bg-slate-950/70 border border-slate-800 rounded-[2rem] p-8 shadow-xl hover:border-blue-500"
+          >
+            <h3 className="text-3xl font-black mb-4">Anual</h3>
+            <p className="text-5xl font-black text-blue-400 mb-6">$100</p>
+
+            <ul className="space-y-3 text-slate-300 mb-8">
+              <li>✓ IA ilimitada</li>
+              <li>✓ Historial persistente</li>
+              <li>✓ Buscar archivos duplicados</li>
+              <li>✓ Modo automático</li>
+              <li>✓ Limpieza caché/temp</li>
+              <li>✓ Sugerencias automáticas</li>
+            </ul>
+
+            <button className="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-700 to-green-700 hover:scale-105 hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] transition-all duration-300 font-bold">
+              Suscribirse
+            </button>
+          </motion.div>
 
         </div>
 
